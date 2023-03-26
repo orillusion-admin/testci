@@ -1,0 +1,17 @@
+{
+    "name": "electron-ci-test",
+    "version": "0.0.1",
+    "description": "test for github ci",
+    "main": "main.js",
+    "scripts": {
+        "dev": "vite",
+        "start": "electron .",
+        "test": "xvfb-maybe -- electron ."
+    },
+    "devDependencies": {
+        "typescript": "^4.7.3",
+        "vite": "^4.2.1",
+        "electron": "npm:electron-nightly@latest",
+        "xvfb-maybe": "^0.2.1"
+    }
+  }
