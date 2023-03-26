@@ -28,8 +28,13 @@ const createWindow = async ()=>{
     ipcMain.on('error', (_event, log) => {
         console.error(`\x1b[31m${log}\x1b[0m`)
     })
-
-    await win.loadURL(HOST + '/new_test/?auto')
+    try{
+        await win.loadURL(HOST)
+    }catch(e){
+        console.error(`\x1b[31m${e.message}\x1b[0m`)
+        vite?.kill()
+        process.exit(1)
+    }
 }
 
 let vite
