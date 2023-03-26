@@ -9,9 +9,10 @@
         "test": "xvfb-maybe -- electron ci/main.js"
     },
     "devDependencies": {
+        "@actions/core": "^1.10.0",
+        "electron": "npm:electron-nightly@latest",
         "typescript": "^4.7.3",
         "vite": "^4.2.1",
-        "electron": "npm:electron-nightly@latest",
         "xvfb-maybe": "^0.2.1"
     }
-  }
+}
