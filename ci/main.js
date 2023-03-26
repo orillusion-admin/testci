@@ -18,19 +18,18 @@ const createWindow = async ()=>{
             webviewTag: true
         }
     })
-    ipcMain.on('log', (_event, log) => {
-        console.log(log)
-        
+    ipcMain.on('log', (_event, log) => {        
         if(log === 'pass'){
             console.log('\x1b[32mCI pass\x1b[0m')
         }else{
-            console.error('\x1b[31mCI not pass\x1b[0m')
+            // console.error('\x1b[31mCI not pass\x1b[0m')
             core.setFailed(`CI not pass`);
         }
         app.quit()
     })
     ipcMain.on('error', (_event, log) => {
-        console.error(`\x1b[31m${log}\x1b[0m`)
+        //console.error(`\x1b[31m${log}\x1b[0m`)
+        core.error(log);
     })
 
     await win.loadURL(HOST + '/new_test/?auto')
