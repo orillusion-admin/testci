@@ -1,9 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const {spawn} = require('child_process')
-
 const HOST = 'http://localhost:4000'
 
+app.commandLine.appendSwitch('log-level', 'silent')
 const createWindow = async ()=>{
     const win = new BrowserWindow({
         width: 800,
@@ -40,7 +40,11 @@ app.whenReady().then(() => {
             createWindow()
         }
     })
-    // createWindow()
+    vite.stderr.on('data', data=>{
+        console.error(`\x1b[31m${data.toString()}\x1b[0m`)
+        vite.kill()
+        process.exit(1)
+    })
 })
 app.on('window-all-closed', () => {
     app.quit()
