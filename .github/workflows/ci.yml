@@ -26,6 +26,9 @@ jobs:
     - name: Install deps
       run: pnpm install
     
+    - name: Test Build
+      run: pnpm run build
+
     - name: Test in Electron
       run: pnpm run test
         

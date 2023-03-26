@@ -5,6 +5,7 @@
     "main": "main.js",
     "scripts": {
         "dev": "vite",
+        "build": "tsc --p tsconfig.build.json && vite build",
         "start": "electron ci/main.js",
         "test": "xvfb-maybe -- electron ci/main.js"
     },
