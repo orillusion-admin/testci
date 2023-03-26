@@ -7,7 +7,14 @@ declare global {
     }
 }
 
-window.electron.log('pass')
+let a:string = 'test'
+try{
+    a = {d:1}
+    a.slice(1)
+    window.electron.log('pass')
+}catch(e){
+    window.electron.error(e.stack)
+    window.electron.log('notpass')
+}
 
-let a = {}
 export {a}
